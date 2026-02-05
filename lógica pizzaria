@@ -1,0 +1,57 @@
+print('---------- bem vindo à pizzaria da Suzana Pereira da Silva -----------')
+print('---------------------------- cardápio --------------------------------')
+print('----------------------------------------------------------------------')
+print('------ |  Tamanho  |   Pizza salgada(PS)  |   Pizza doce(PD)  | ------')
+print('------ |     P     |      R$ 30.00        |      R$ 34.00     | ------')
+print('------ |     M     |      R$ 45.00        |      R$ 48.00     | ------')
+print('------ |     G     |      R$ 60.00        |      R$ 66.00     | ------')
+print('----------------------------------------------------------------------')
+
+total_pedido = 0  # variável que acumula o valor total do pedido
+
+while True:
+    # Escolha do sabor
+    while True:
+        sabor = input('Digite o sabor desejado (PS/PD): ').upper()
+        if sabor in ('PS', 'PD'):
+            break
+        else:
+            print('Sabor inválido! Tente novamente.')
+
+    # Escolha do tamanho
+    while True:
+        tamanho = input('Digite o tamanho desejado (P/M/G): ').upper()
+        if tamanho in ('P', 'M', 'G'):
+            break
+        else:
+            print('Tamanho inválido! Tente novamente.')
+
+    # Cálculo do valor da pizza atual com if/elif/else aninhado
+    if tamanho == 'P':
+        if sabor == 'PS':
+            valor_final = 30.0
+        else:
+            valor_final = 34.0
+    elif tamanho == 'M':
+        if sabor == 'PS':
+            valor_final = 45.0
+        else:
+            valor_final = 48.0
+    elif tamanho == 'G':
+        if sabor == 'PS':
+            valor_final = 60.0
+        else:
+            valor_final = 66.0
+
+    total_pedido += valor_final  # acumula o valor da pizza no total
+
+    print(f'Valor da pizza de sabor {sabor} e tamanho {tamanho}: R$ {valor_final:.2f}')
+
+    # Pergunta se deseja continuar
+    mais = input('Deseja pedir mais alguma coisa? (S/N): ').upper()
+    if mais == 'S':
+        continue
+    else:
+        print('Pedido finalizado com sucesso! Obrigado pela preferência!')
+        print(f'Valor total do pedido: R$ {total_pedido:.2f}')  # mostra o total do pedido
+        break
